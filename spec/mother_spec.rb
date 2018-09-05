@@ -66,4 +66,10 @@ RSpec.describe Mother do
       Then { expect(subject.foo).to be_a(described_class) }
     end
   end
+
+  describe '#keys' do
+    Given(:argument) { { foo: 'phew', bar: 'boar' } }
+    When(:subject) { described_class.new argument }
+    Then { subject.keys == [:foo, :bar] }
+  end
 end

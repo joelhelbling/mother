@@ -32,6 +32,10 @@ class Mother
     end
   end
 
+  def keys
+    @data.keys
+  end
+
   def method_missing(method, *args, &block)
     self[method]
   end
