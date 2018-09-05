@@ -35,10 +35,18 @@ RSpec.describe Mother do
       end
     end
 
-    context 'when string is just a string' do
-      Given(:argument) { 'foo, um, bar' }
-      Then do
-        expect{ described_class.new argument }.to raise_error(ArgumentError)
+    context 'invalid arguments' do
+      context 'like a String' do
+        Given(:arg) { 'foo, um, bar' }
+        Then do
+          expect{ described_class.new arg }.to raise_error(ArgumentError)
+        end
+      end
+      context 'an Integer' do
+        Given(:arg) { 12 }
+        Then do
+          expect{ described_class.new arg }.to raise_error(ArgumentError)
+        end
       end
     end
   end

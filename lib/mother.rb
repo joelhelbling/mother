@@ -15,8 +15,10 @@ class Mother
       when argument.match(/\.json$/)
         JSON.parse(File.read(argument))
       else
-        raise ArgumentError.new('Must be a hash, or YAML/JSON filename')
+        ___argument_failure!
       end
+    else
+      ___argument_failure!
     end
   end
 
@@ -34,7 +36,13 @@ class Mother
     self[method]
   end
 
+  private
+
   def ___fetch(key)
     @data[key.to_sym] or @data[key.to_s]
+  end
+
+  def ___argument_failure!
+    raise ArgumentError.new('Must be a hash, or YAML/JSON filename')
   end
 end
