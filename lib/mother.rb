@@ -1,18 +1,42 @@
 require 'mother/version'
-require 'mother/common'
-require 'mother/entity'
 require 'mother/collection'
 require 'yaml'
 require 'json'
 
-module Mother
+class Mother
+  attr_reader :data
+
+  def initialize(argument)
+    self.class.argument_failure! unless argument.is_a?(Hash)
+
+    @data = argument
+  end
+
+  def [](key)
+    self.class.create ___fetch(key)
+  end
+
+  def keys
+    @data.keys
+  end
+
+  def method_missing(method, *args, &block)
+    self[method]
+  end
+
+  private
+
+  def ___fetch(key)
+    @data[key.to_sym] or @data[key.to_s]
+  end
+
   class << self
     def create(thing)
       case thing
       when Array
-        Collection.new thing
+        Collection.new self, thing
       when Hash
-        Entity.new thing
+        new thing
       when String
         case
         when thing.match(/\.ya?ml$/)
@@ -25,6 +49,10 @@ module Mother
       else
         thing
       end
+    end
+
+    def argument_failure!
+      raise ArgumentError.new('Must be a hash, or YAML/JSON filename')
     end
   end
 end

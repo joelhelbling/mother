@@ -1,28 +1,30 @@
-module Mother
+class Mother
   class Collection
+    attr_reader :mother, :data
+
     include Enumerable
-    include Mother::Common
 
-    def initialize(argument)
-      ___argument_failure! unless argument.is_a?(Array)
+    def initialize(mother, argument)
+      mother.argument_failure! unless argument.is_a?(Array)
 
+      @mother = mother
       @data = argument
     end
 
     def first
-      ___create @data.first
+      mother.create data.first
     end
 
     def last
-      ___create @data.last
+      mother.create data.last
     end
 
     def [](index)
-      ___create @data[index]
+      mother.create data[index]
     end
 
     def each(&block)
-      @data.map{ |i| ___create i }.each(&block)
+      data.map{ |i| mother.create i }.each(&block)
     end
   end
 end
