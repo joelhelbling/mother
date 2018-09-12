@@ -1,7 +1,3 @@
-![Tested](https://github.com/joelhelbling/mother/actions/workflows/ruby.yml/badge.svg)
-
-# Mother
-
 In the culinary world, "mother" is a natural complex of bacteria, proteins, enzymes and
 fiber, which controls the fermentation of vinegar.  It has this property, that the mother
 derived in a new batch of vinegar can subsequently be used to start the fermentation of
