@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Joel Helbling"]
   spec.email         = ["joel@joelhelbling.com"]
 
-  spec.summary       = %q{Demeter-ish access to a hash's children}
-  spec.description   = %q{Ever wish you had JS-like access to a deeply nested yaml?}
+  spec.summary       = %q{Method-ized access to a hash's children, and their children.}
+  spec.description   = %q{Ever wish you had effortless, JS-like access to a deeply nested yaml?}
   spec.homepage      = "https://mother.joelhelbling.com"
   spec.license       = "MIT"
 
