@@ -45,7 +45,7 @@ Then create a Mother like so:
 mom = Mother.create source
 ```
 
-And then you can call your mom like so:
+And then you can call your mom (and you should!):
 
 ```ruby
 mom.favorite_beverage #=> 'Chamomile Tea'
