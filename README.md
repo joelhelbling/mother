@@ -170,19 +170,15 @@ file to [rubygems.org](https://rubygems.org).
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/joelhelbling/mother.
 This project is intended to be a safe, welcoming space for collaboration, and contributors are
-expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org) code of
-conduct.
+expected to adhere to the [code of conduct][code_of_conduct].
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
-
-Everyone interacting in Mother’s codebases, issue trackers, chat rooms and mailing lists shoulds
-expect to follow the [code of conduct](https://github.com/joelhelbling/mother/blob/master/CODE_OF_CONDUCT.md).
-
 ## Dedication
 
 _I'd like to dedicate this gem to my Mom, who taught me to think analytically, who was my first
 and best math teacher, and who encourages me to do my best, even nowadays.  I love you, Mom._
+
+[code_of_conduct]: https://github.com/joelhelbling/mother/blob/master/CODE_OF_CONDUCT.md
