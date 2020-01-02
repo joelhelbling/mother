@@ -44,5 +44,17 @@ RSpec.describe Mother::Collection do
       When(:subject) { described_class.new Mother, argument }
       Then { subject.map{|i| i.class} == [Mother, String, Integer] }
     end
+
+    context '#keys' do
+      Given(:argument) { [ :fee, :fie, :foe ] }
+      When(:subject) { described_class.new Mother, argument }
+      Then { expect{subject.keys}.to raise_error(NoMethodError) }
+    end
+
+    context '#values' do
+      Given(:argument) { [ :fee, :fie, :foe ] }
+      When(:subject) { described_class.new Mother, argument }
+      Then { expect{subject.values}.to raise_error(NoMethodError) }
+    end
   end
 end

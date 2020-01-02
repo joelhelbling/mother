@@ -20,6 +20,10 @@ class Mother
     @data.keys
   end
 
+  def values
+    @data.values
+  end
+
   def method_missing(method, *args, &block)
     self[method]
   end

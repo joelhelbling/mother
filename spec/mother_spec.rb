@@ -121,4 +121,9 @@ RSpec.describe Mother do
     Then { subject.keys == [:foo, :bar] }
   end
 
+  describe '#values' do
+    Given(:argument) { { foo: 'phew', bar: 'boar' } }
+    When(:subject) { described_class.new argument }
+    Then { subject.values == ['phew', 'boar'] }
+  end
 end
