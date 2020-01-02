@@ -28,6 +28,10 @@ class Mother
     self[method]
   end
 
+  def respond_to_missing?(method, include_private = true)
+    keys.include?(method) || keys.include?(method.to_s) || super
+  end
+
   private
 
   def ___fetch(key)

@@ -1,4 +1,24 @@
 RSpec.describe Mother do
+  describe "#respond_to?" do
+    When(:subject) { described_class.create arg }
+
+    context "with symbol keys" do
+      Given(:arg) { { foo: "bar", bar: nil, bop: false } }
+      Then { expect(subject).to respond_to(:foo) }
+      Then { expect(subject).to respond_to(:bar) }
+      Then { expect(subject).to respond_to(:bop) }
+      Then { expect(subject).to_not respond_to(:baz) }
+    end
+
+    context "with string keys" do
+      Given(:arg) { { "foo" => "bar", "bar" => nil, "bop" => false } }
+      Then { expect(subject).to respond_to(:foo) }
+      Then { expect(subject).to respond_to(:bar) }
+      Then { expect(subject).to respond_to(:bop) }
+      Then { expect(subject).to_not respond_to(:baz) }
+    end
+  end
+
   describe '#create' do
     When(:subject) { described_class.create arg }
 
@@ -74,7 +94,17 @@ RSpec.describe Mother do
     context 'when argument is a hash' do
       Given(:argument) { hash }
       When(:subject) { described_class.new argument }
-      Then { subject.foo == hash[:foo] }
+
+      context "with symbols for keys" do
+        Then { subject.foo == hash[:foo] }
+      end
+
+      context "with strings for keys" do
+        Given(:hash) do
+          { "foo" => "phew" }
+        end
+        Then { subject.foo == hash["foo"] }
+      end
     end
 
     context 'invalid arguments' do
