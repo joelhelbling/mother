@@ -1,7 +1,7 @@
-require 'mother/version'
-require 'mother/collection'
-require 'yaml'
-require 'json'
+require "mother/version"
+require "mother/collection"
+require "yaml"
+require "json"
 
 class Mother
   attr_reader :data
@@ -55,7 +55,7 @@ class Mother
     end
 
     def argument_failure!
-      raise ArgumentError.new('Must be a hash, or YAML/JSON filename')
+      raise ArgumentError.new("Must be a hash, or YAML/JSON filename")
     end
   end
 end

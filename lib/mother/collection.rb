@@ -24,7 +24,7 @@ class Mother
     end
 
     def each(&block)
-      data.map{ |i| mother.create i }.each(&block)
+      data.map { |i| mother.create i }.each(&block)
     end
   end
 end

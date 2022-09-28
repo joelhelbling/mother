@@ -1,29 +1,26 @@
-RSpec.describe 'Mother extended' do
-
-  Given do
-    class Mom < Mother
-      def [](key)
-        case value = super
-        when String
-          "~~#{value}~~"
-        else
-          value
-        end
-      end
+class Mom < Mother
+  def [](key)
+    case value = super
+    when String
+      "~~#{value}~~"
+    else
+      value
     end
   end
+end
 
+RSpec.describe "Mother extended" do
   When(:subject) { Mom.create argument }
 
-  describe 'children inherit behaviors' do
-    Given(:argument) { { foo: 'bar' } }
+  describe "children inherit behaviors" do
+    Given(:argument) { {foo: "bar"} }
 
-    Then { subject.foo == '~~bar~~' }
+    Then { subject.foo == "~~bar~~" }
   end
 
-  describe 'collections are fine too' do
-    Given(:argument) { [12, { foo: 'bar' }] }
+  describe "collections are fine too" do
+    Given(:argument) { [12, {foo: "bar"}] }
 
-    Then { subject.last.foo == '~~bar~~' }
+    Then { subject.last.foo == "~~bar~~" }
   end
 end
