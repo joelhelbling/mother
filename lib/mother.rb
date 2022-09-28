@@ -45,15 +45,10 @@ class Mother
         Collection.new self, thing
       when Hash
         new thing
-      when String
-        case
-        when thing.match(/\.ya?ml$/)
-          self.create YAML.load(File.read(thing))
-        when thing.match(/\.json$/)
-          self.create JSON.parse(File.read(thing))
-        else
-          thing
-        end
+      when String && /\.ya?ml$/
+        create YAML.load(File.read(thing))
+      when String && /\.json$/
+        create JSON.parse(File.read(thing))
       else
         thing
       end
