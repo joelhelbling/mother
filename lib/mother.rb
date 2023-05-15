@@ -17,11 +17,11 @@ class Mother
   end
 
   def keys
-    @data.keys
+    self.class.create @data.keys
   end
 
   def values
-    @data.values
+    self.class.create @data.values
   end
 
   def method_missing(method, *args, &block)

@@ -148,12 +148,16 @@ RSpec.describe Mother do
   describe "#keys" do
     Given(:argument) { {foo: "phew", bar: "boar"} }
     When(:subject) { described_class.new argument }
-    Then { subject.keys == [:foo, :bar] }
+    Then { expect(subject.keys).to be_a(Mother::Collection) }
+    Then { subject.keys.first == :foo }
+    Then { subject.keys.last == :bar }
   end
 
   describe "#values" do
     Given(:argument) { {foo: "phew", bar: "boar"} }
     When(:subject) { described_class.new argument }
-    Then { subject.values == ["phew", "boar"] }
+    Then { expect(subject.values).to be_a(Mother::Collection) }
+    Then { subject.values.first == "phew" }
+    Then { subject.values.last == "boar" }
   end
 end
